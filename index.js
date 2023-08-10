@@ -10,6 +10,14 @@ const Logger = require("@ptkdev/logger");
 
 const convert_message = (content) => {
     let message = content;
+    if (typeof content === "string") {
+        try {
+            const json = JSON.parse(content);
+            if (typeof json === "object") {
+                return { type: "warning", content: message };
+            }
+        } catch (e) { }
+    }
     if (typeof content === "object") {
         return { type: "info", content: JSON.stringify(message) };
     }
@@ -47,8 +55,8 @@ const log_config = (dir) => ({
     palette: {
         info: {
             label: "#ffffff",
-            text: "#4CAF50",
-            background: "#4CAF50"
+            text: "#00695C",
+            background: "#00695C"
         },
         warning: {
             label: "#ffffff",text: "#FF9800",background: "#FF9800"
