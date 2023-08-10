@@ -63,13 +63,13 @@ const log_config = (dir) => ({
             label: "#ffffff",text: "#FF4081",background: "#FF4081"
         },
         debug: {
-            label: "#ffffff",text: "#1976D2",background: "#1976D2"
+            label: "#147efb",text: "#ffffff",background: "#ffffff"
         },
         sponsor: {
             label: "#ffffff",text: "#607D8B",background: "#607D8B"
         },
         time: {
-            label: "#ffffff",background: "#795548"
+            label: "#ffffff",background: "#147efb"
         }
     }
 });
@@ -203,7 +203,6 @@ const ip_address = () => {
         io.on("connection", (socket) => {
             logger.debug('incoming device... 🎉');
             socket.on("message",(message)=>{
-                logger.debug(message);
                 const {type, content} = convert_message(message);
                 if (type === "info") {
                     logger.info(content);
