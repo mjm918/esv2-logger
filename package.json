@@ -9,6 +9,9 @@
     "express": "^4.18.2",
     "socket.io": "^4.7.2"
   },
+  "scripts": {
+    "build": "pkg index.js --options max-old-space-size=1024,tls-min-v1.0,expose-gc --output ./rn-esv2-logger"
+  },
   "bin": "./index.js",
   "pkg": {
     "scripts": "*.js",

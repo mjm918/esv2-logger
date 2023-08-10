@@ -1,8 +1,0 @@
-if (__DEV__) {
-    const socket_io = require("socket.io-client");
-    global.socket = socket_io("http://<ip_address>:9091/",{ transports:["polling","websocket"],autoConnect: true });
-    global.socket.on("connect_error",(err)=>{
-        console.warn(JSON.stringify(err));
-    });
-    console.warn("‼️creating log-exporter");
-}
