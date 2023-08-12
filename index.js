@@ -209,6 +209,10 @@ const ip_address = () => {
         logger = new Logger(log_config(log_dir));
 
         io.on("connection", (socket) => {
+            let lines = process.stdout.getWindowSize()[1];
+            for(let i = 0; i < lines; i++) {
+                console.log('\r\n');
+            }
             logger.debug('incoming device... 🎉');
             socket.on("message",(message)=>{
                 const {type, content} = convert_message(message);
